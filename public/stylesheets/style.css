@@ -1,8 +1,29 @@
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  padding: 0;
+  font: 14px, 'Kalam', Arial, sans-serif;
 }
+
+a{
+	font-family: 'Coming Soon';
+}
+
 
 a {
   color: #00B7FF;
+}
+
+
+.jumbotron{
+	background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/images/knowledge.jpg');
+	background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/images/knowledge.jpg');
+	background-size: cover;
+    background-position: center;
+    height: 250px;
+
+}
+
+.jumbotron h1, p{
+	color: white;
+	font-family: 'Coming Soon';
+	margin-bottom: 2%;
 }
