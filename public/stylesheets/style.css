@@ -52,5 +52,34 @@ nav a{
   text-decoration: none;
 }
 
+*{
+	font-family: 'Open Sans Condensed';
+}
+
+.cover-img{
+   width: 100%;
+   max-height: 600px;
+}
+
+.blog p {
+	color: black;
+    font-family: 'Open Sans Condensed';
+    font-size: 20px;
+}
+
+.section-heading{
+	font-weight: 700;
+}
+
+.comments-header span{
+	font-size: 20px;
+}
+
+.comment p{
+	font-family: sans-serif;
+	font-size: 14px;
+}
+
+
 
 
