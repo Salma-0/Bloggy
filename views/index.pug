@@ -1,8 +1,46 @@
 extends layout
 
 block content
-	div(class='jumbotron text-center')
-		h1 Bloggy
-		p Anything To Read In One Site
+    div(class='jumbotron text-center mb-5')
+        h1 Bloggy
+        p Anything To Read In One Site
+
+    div(class='container blogs-list mb-5')
+        div(class='blog-item')
+            a(href='#')
+                h3 Man must explore, and this is exploration at its greatest
+                h4 Problems look mighty small from 150 miles up
+                em Posted By Steve Bob on September 18, 2019
+            hr
+
+        div(class='blog-item')
+            a(href='#')
+                h3 Man must explore, and this is exploration at its greatest
+                h4 Problems look mighty small from 150 miles up
+                em Posted By Steve Bob on September 18, 2019
+            hr
+        div(class='blog-item')
+            a(href='#')
+                h3 Man must explore, and this is exploration at its greatest
+                h4 Problems look mighty small from 150 miles up
+                em Posted By Steve Bob on September 18, 2019
+            hr
+
+        button(type='button' class='btn btn-info')  Older Posts       
+            i(class="fas fa-arrow-alt-circle-right")
+
+    footer
+        hr
+        div(class='container text-center p-5')
+            button(type='button' class='btn mr-3')
+                span(class='fab fa-facebook' style='font-size: 28px')
+            button(type='button' class=' btn mr-3')
+                span(class='fab fa-instagram' style='font-size: 28px')
+            button(type='button' class='btn mr-3')
+                span(class='fab fa-twitter' style='font-size: 28px') 
+
+    
+
+
   
 

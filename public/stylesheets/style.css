@@ -3,15 +3,14 @@ body {
   font: 14px, 'Kalam', Arial, sans-serif;
 }
 
-a{
+a.navbar-brand {
+	font-family: 'Coming Soon';
+	font-size: 22px;
+}
+
+nav a{
 	font-family: 'Coming Soon';
 }
-
-
-a {
-  color: #00B7FF;
-}
-
 
 .jumbotron{
 	background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/images/knowledge.jpg');
@@ -20,6 +19,7 @@ a {
     background-position: center;
     height: 250px;
 
+
 }
 
 .jumbotron h1, p{
@@ -27,3 +27,30 @@ a {
 	font-family: 'Coming Soon';
 	margin-bottom: 2%;
 }
+
+
+
+.blog-item{
+	padding: 2%;
+}
+
+ .blog-item a{
+  font-family: 'Open Sans Condensed', sans-serif;
+  color: black;
+}
+
+.blog-item h4{
+   color: #5a5a5e;
+}
+
+.blog-item em{
+	color: gray;
+}
+
+.blog-item a:hover{
+  color: maroon;
+  text-decoration: none;
+}
+
+
+
