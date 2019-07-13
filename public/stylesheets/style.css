@@ -80,6 +80,29 @@ nav a{
 	font-size: 14px;
 }
 
+.login-form form{
+	border: 0.5px solid #000;
+	width: 60%;    
+}
 
 
 
+.login-form button {
+  width: 100%;
+  background-color: #0f7c7e;
+  color: #fff;	
+}
+
+.login-form button:hover{
+	background-color: #b7d7d8;
+	color: #000;
+}
+
+.personal-info ul > li:hover {
+	background-color: #efefef
+}
+
+.personal-info a:hover{
+	text-decoration: none;
+	color: maroon;
+}

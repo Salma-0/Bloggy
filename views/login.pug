@@ -1,0 +1,35 @@
+extends layout
+
+block content
+    div(class='container')
+
+
+        div(class='login-form d-flex flex-row justify-content-center align-items-center h-100 p-2')
+            form(action='/' method='POST' class='p-4' id='loginForm')
+                div(class='form-group')
+                    label Email
+                    input(type='email' placeholder='Email' class='form-control')
+                div(class='form-group')
+                    label Password
+                    input(type='password' placeholder='Password' class='form-control')
+                button(type='submit' class='btn btn-default') Login
+                br
+                
+                p(style='color: #000; font-family: Open Sans Condensed') Not registered? 
+                    a(href='#' id='signUpLink') Sign up
+
+        
+            form(action='/' mathod='POST' class='p-4' style='display: none' id='signUpForm')
+                div(class='form-group')
+                    label Email
+                    input(type='email' placeholder='Email' class='form-control')
+                div(class='form-group')
+                    label Password
+                    input(type='password' placeholder='Password' class='form-control')
+                div(class='form-group')
+                    label Confirm Password
+                    input(type='password' placeholder='Password' class='form-control')
+                div(class='form-group')
+                    label Username
+                    input(type='text' placeholder='Username' class='form-control')
+                button(type='submit' class='btn btn-default') Sign Up
