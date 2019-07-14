@@ -12,15 +12,15 @@ block content
                 button(type='button' id='imageBtn' class='btn btn-outline-dark w-100 mb-1') New Image
             div(class='col-md-3')
                 button(type='button' id='quoteBtn' class='btn btn-outline-danger w-100') New Quote
-        div(class='container p-3 m-2')
+        form(mathod='POST' action='/' class='p-3 m-2')
             input(type='text' name='title' placeholder='Title' class='form-control mb-2' ng-model='title')
             input(type='text' name='firstHeading' placeholder='First Heading' class='form-control mb-2' ng-model='fheading')
             label Upload the cover image
             input(type='file' name='coverImage' class='form-control mb-2')
             hr
-        div(class='container p-3 m-2' id='dynInputs')
+            div(class='container p-3 m-2' id='dynInputs')
 
-        button(class='btn btn-info w-70' type='button') Create A New Blog Post 
+            button(class='btn btn-info w-70' type='submit') Create A New Blog Post 
 
 
 

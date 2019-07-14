@@ -13,7 +13,7 @@ $(document).ready(function(){
    		$(this).removeAttr('readOnly');
    	});
    })
-
+   var imageCounter = 0;
    $('#headingBtn').click(function(){
       $('#dynInputs').append('<input type="text" name="secHeading" class="form-control" placeholder="Heading"/>');
    })
@@ -23,7 +23,12 @@ $(document).ready(function(){
    });
 
    $('#imageBtn').click(function(){
-      $('#dynInputs').append('<input type="file" name="image" class="form-control"/>');
+      var nearestPr = $('textarea').last();
+      $('#dynInputs').append(`<input type="file" name="image${imageCounter}" class="form-control id="image${imageCounter}"/>`);
+      let curVal = nearestPr.val();
+      nearestPr.val(curVal+`\n[/img${imageCounter}]`)
+      imageCounter += 1;
+
    });
 
    $('#quoteBtn').click(function(){
