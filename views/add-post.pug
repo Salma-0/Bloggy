@@ -1,34 +1,28 @@
 extends layout
 
 block content
-	div(class='container')
-		h2 New Post
-		div(class='row p-4 m-2')
-			div(class='col-md-3')
-				button(type='button' id='headingBtn' class='btn btn-outline-primary w-100 mb-1') Heading
-			div(class='col-md-3')
-				button(type='button' id='paragraphBtn' class='btn btn-outline-info w-100 mb-1') Paragraph
-			div(class='col-md-3')
-				button(type='button' id='imageBtn' class='btn btn-outline-dark w-100 mb-1') Image
-			div(class='col-md-3')
-				button(type='button' id='quoteBtn' class='btn btn-outline-danger w-100') Quote
-		div(class='container p-3 m-2')
-			input(type='text' name='title' placeholder='Title' class='form-control mb-2')
-			input(type='text' name='firstHeading' placeholder='First Heading' class='form-control mb-2')
-			label Upload the cover image
-			input(type='file' name='coverImage' class='form-control mb-2')
-			button(type='button' class='btn btn-primary mb-2 w-100') Add
+    div(class='container' )
+        h2 New Post
+        div(class='row p-4 m-2')
+            div(class='col-md-3')
+                button(type='button' id='headingBtn' class='btn btn-outline-primary w-100 mb-1') Section Heading
+            div(class='col-md-3')
+                button(type='button' id='paragraphBtn' class='btn btn-outline-info w-100 mb-1') New Paragraph
+            div(class='col-md-3')
+                button(type='button' id='imageBtn' class='btn btn-outline-dark w-100 mb-1') New Image
+            div(class='col-md-3')
+                button(type='button' id='quoteBtn' class='btn btn-outline-danger w-100') New Quote
+        div(class='container p-3 m-2')
+            input(type='text' name='title' placeholder='Title' class='form-control mb-2' ng-model='title')
+            input(type='text' name='firstHeading' placeholder='First Heading' class='form-control mb-2' ng-model='fheading')
+            label Upload the cover image
+            input(type='file' name='coverImage' class='form-control mb-2')
+            hr
+        div(class='container p-3 m-2' id='dynInputs')
 
-			input(type='text' id='secHeadingInput' name='sectionHeading' placeholder='Heading' class='form-control mb-2' style='display: none')
-			textarea(name='paragraph' id='prInput' placeholder='Paragraph' class='form-control mb-2' style='display: none')
-			input(type='file' name='image' id='imageInput' class='form-control mb-2' style='display: none')
-			textarea(name='quote' placeholder='Quote' id='quoteInput' class='form-control mb-2' style='display: none')
-			button(type='button' class='btn btn-primary mb-2 w-100' style='display: none') Add
-
-		div(class='container p-3 m5 preview')
-
-		button(class='btn btn-info w-70' type='button') Create A New Blog Post 
+        button(class='btn btn-info w-70' type='button') Create A New Blog Post 
 
 
-			
+
+            
 

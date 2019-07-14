@@ -15,23 +15,21 @@ $(document).ready(function(){
    })
 
    $('#headingBtn').click(function(){
-      $('#secHeadingInput').css('display', 'block');
-      $(':button').css('display', 'block')
+      $('#dynInputs').append('<input type="text" name="secHeading" class="form-control" placeholder="Heading"/>');
    })
 
    $('#paragraphBtn').click(function(){
-      $('#prInput').css('display', 'block');
-      $(':button').css('display', 'block');
+      $('#dynInputs').append('<textarea placeholder="Paragraph" class="form-control mb-3" name="paragraph" rows="6"></textarea>')
    });
 
    $('#imageBtn').click(function(){
-      $('#imageInput').css('display', 'block');
-      $(':button').css('display', 'block');
+      $('#dynInputs').append('<input type="file" name="image" class="form-control"/>');
    });
 
    $('#quoteBtn').click(function(){
-      $('#quoteInput').css('display', 'block');
-      $(':button').css('display', 'block');
-   })
+      $('#dynInputs').append('<input type="text" name="quote" placeholder="Quote" class="form-control">')
+   });
+
+
    
 });
