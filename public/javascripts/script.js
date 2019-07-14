@@ -14,12 +14,16 @@ $(document).ready(function(){
    	});
    })
    var imageCounter = 0;
+   
    $('#headingBtn').click(function(){
-      $('#dynInputs').append('<input type="text" name="secHeading" class="form-control" placeholder="Heading"/>');
+      var nearestPr = $('textarea').last();
+      $('#dynInputs').append(`<input type="text" name="secHeadings[]" class="form-control" placeholder="Heading"/>`);
+      let curVal = nearestPr.val();
+      nearestPr.val(curVal + `\n[/section-heading]`)
    })
 
    $('#paragraphBtn').click(function(){
-      $('#dynInputs').append('<textarea placeholder="Paragraph" class="form-control mb-3" name="paragraph" rows="6"></textarea>')
+      $('#dynInputs').append('<textarea placeholder="Paragraph" class="form-control mb-3" name="paragraphs[]" rows="6"></textarea>')
    });
 
    $('#imageBtn').click(function(){
@@ -32,7 +36,10 @@ $(document).ready(function(){
    });
 
    $('#quoteBtn').click(function(){
-      $('#dynInputs').append('<input type="text" name="quote" placeholder="Quote" class="form-control">')
+      var nearestPr = $('textarea').last();
+      $('#dynInputs').append('<input type="text" name="quotes[]" placeholder="Quote" class="form-control">');
+      let curVal = nearestPr.val();
+      nearestPr.val(curVal + `\n[/quote]`)
    });
 
 
