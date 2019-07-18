@@ -4,14 +4,15 @@ block content
     div(class='container')
         div(class='personal-info col-8 p-4')
             h3(class='mb-5') Personal Information
-            label Email
-            input(type='email' class='form-control' readonly)
-            label Username
-            input(type='text' class='form-control' readonly)
-            br
-            a(href='#' class='edit-btn') Edit 
-                span(class='far fa-edit')
-            button(class='btn btn-default update-btn' type='button' style='display: none') Update
+            form(method='post' action='/users/update')
+                label Email
+                input(type='email' name='email' class='form-control' value=`${user.email}` readonly)
+                label Username
+                input(type='text' name='username' class='form-control' value=`${user.username}` readonly)
+                br
+                a(href='#' class='edit-btn') Edit 
+                    span(class='far fa-edit')
+                button(class='btn btn-default update-btn' type='submit' style='display: none') Update
         div(class='personal-info col-8 p-4')
             h3(class='mb-5') Posted By Me
             ul(class='list-group')

@@ -8,7 +8,7 @@ var UserSchema = new Schema({
 		required: true,
 		unique: true,
 		match: [/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
-		    'Please fill a valid email address']
+		    'Please fill a valid and unique email address']
 		},
 	password: {type: String, required: true}
 

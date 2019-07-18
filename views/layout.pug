@@ -13,6 +13,7 @@ html
     script(src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js")
     script(src='/javascripts/script.js')
   body
+    input(type='hidden' id='loggedAttr' value=`${logged}`)
     nav(class='navbar navbar-expand-md bg-light navbar-light')
         a(class="navbar-brand ml-3" href="#") Bloggy
 
@@ -21,11 +22,13 @@ html
         div(class="collapse navbar-collapse" id="collapsibleNavbar")
             ul(class='navbar-nav ml-auto mr-5')
                 li(class='nav-item')
-                    a(class='nav-link') Home
+                    a(class='nav-link' href='/') Home
                 li(class='nav-item')
-                    a(class='nav-link') Sign in
+                    a(class='nav-link' href='/users/login' id='signLink') Sign in
+                li(class='nav-item' id='profileLink')
+                    a(class='nav-link' href='/users/user') Profile
                 li(class='nav-item')
-                    a(class='nav-link') About
+                    a(class='nav-link' href='/about') About
 
 
     block content

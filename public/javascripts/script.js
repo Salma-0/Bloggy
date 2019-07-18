@@ -42,6 +42,15 @@ $(document).ready(function(){
       nearestPr.val(curVal + `\n[/quote]`)
    });
 
-
+   let logged = $('#loggedAttr').val();
+   if(logged == "true"){
+      $('#signLink').attr('href', '/users/logout')
+      $('#signLink').text('Sign Out');
+      $('#profileLink').show();
+   }else{
+      $('#signLink').attr('href', '/users/login')
+      $('#signLink').text('Sign In');
+      $('#profileLink').hide();
+   }
    
 });

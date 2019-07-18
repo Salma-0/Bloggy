@@ -5,13 +5,13 @@ block content
 
 
         div(class='login-form d-flex flex-row justify-content-center align-items-center h-100 p-2')
-            form(action='/' method='POST' class='p-4' id='loginForm')
+            form(action='/users/login' method='POST' class='p-4' id='loginForm')
                 div(class='form-group')
                     label Email
-                    input(type='email' placeholder='Email' class='form-control')
+                    input(type='email' name='email' placeholder='Email' class='form-control')
                 div(class='form-group')
                     label Password
-                    input(type='password' placeholder='Password' class='form-control')
+                    input(type='password' name='password' placeholder='Password' class='form-control')
                 button(type='submit' class='btn btn-default') Login
                 br
                 
@@ -19,17 +19,17 @@ block content
                     a(href='#' id='signUpLink') Sign up
 
         
-            form(action='/' mathod='POST' class='p-4' style='display: none' id='signUpForm')
+            form(action='/users/create' method='POST' class='p-4' style='display: none' id='signUpForm')
                 div(class='form-group')
                     label Email
-                    input(type='email' placeholder='Email' class='form-control')
+                    input(type='email' placeholder='Email' class='form-control' name='email')
                 div(class='form-group')
                     label Password
-                    input(type='password' placeholder='Password' class='form-control')
-                div(class='form-group')
+                    input(type='password' placeholder='Password' class='form-control' name='password1')
+                div(class='form-group' )
                     label Confirm Password
-                    input(type='password' placeholder='Password' class='form-control')
+                    input(type='password' placeholder='Password' class='form-control' name='password2')
                 div(class='form-group')
                     label Username
-                    input(type='text' placeholder='Username' class='form-control')
-                button(type='submit' class='btn btn-default') Sign Up
+                    input(type='text' placeholder='Username' class='form-control' name='username')
+                button(type='submit' class='btn btn-default' form='signUpForm') Sign Up
