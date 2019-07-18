@@ -9,4 +9,4 @@ var CommentSchema = new Schema({
 	post_id: {type: Schema.ObjectId, ref: 'Post', required: true}
 });
 
-module.exports = mongoose.model('Comment', Comment);
+module.exports = mongoose.model('Comment', CommentSchema);
