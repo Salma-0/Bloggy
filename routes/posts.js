@@ -1,6 +1,9 @@
 let express = require('express');
 let router = express.Router();
 let PostCtrl = require('../controllers/PostCtrl');
+const multiparty = require('connect-multiparty');
+const multipartMiddleware = multiparty({uploadDir: './uploads'});
+
 
 /* Get Posts List */
 
@@ -19,7 +22,7 @@ router.get('/create', PostCtrl.create_post_get);
  * CREATE POST POST
  */
 
- router.post('/create', PostCtrl.create_post_post);
+ router.post('/create', multipartMiddleware, PostCtrl.create_post_post);
 
  /* Update Post Get */
 

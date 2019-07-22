@@ -12,13 +12,17 @@ block content
                 button(type='button' id='imageBtn' class='btn btn-outline-dark w-100 mb-1') New Image
             div(class='col-md-3')
                 button(type='button' id='quoteBtn' class='btn btn-outline-danger w-100') New Quote
-        form(mathod='POST' action='/' class='p-3 m-2')
+        form(method='POST' action='/posts/create' class='p-3 m-2' id='postForm' enctype='multipart/form-data')
             input(type='text' name='title' placeholder='Title' class='form-control mb-2' ng-model='title')
             input(type='text' name='firstHeading' placeholder='First Heading' class='form-control mb-2' ng-model='fheading')
             label Upload the cover image
-            input(type='file' name='coverImage' class='form-control mb-2')
             hr
             div(class='container p-3 m-2' id='dynInputs')
+            input(type='hidden' name='quoteCounter' id='quoteCounter')
+            input(type='hidden' name='paragraphCounter' id='paragraphCounter')
+            input(type='hidden' name='imageCounter' id='imageCounter')
+            input(type='hidden' name='secHeadingCounter' id='secHeadingCounter')
+
 
             button(class='btn btn-info w-70' type='submit') Create A New Blog Post 
 

@@ -5,7 +5,6 @@ var PostSchema = new Schema({
 	author: {type: Schema.ObjectId, ref: 'User', required: true},
 	title: String,
 	heading: String,
-	cover_image: String,
 	images: [String],
 	section_headings: [String],
 	paragraphs: [String],

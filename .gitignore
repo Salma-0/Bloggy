@@ -2,3 +2,6 @@ node_modules/
 
 #ignore API KEYS
 .env
+
+#ignore the testing images in uploads dir
+uploads/

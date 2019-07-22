@@ -33,7 +33,7 @@ app.use(session({secret: 'Sceret key',
                  resave: false,
                  saveUninitialized: true}));
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: true }));
 
 
 app.use(cookieParser());
