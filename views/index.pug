@@ -6,28 +6,18 @@ block content
         p Anything To Read In One Site
 
     div(class='container blogs-list mb-5')
-        div(class='blog-item')
-            a(href='#')
-                h3 Man must explore, and this is exploration at its greatest
-                h4 Problems look mighty small from 150 miles up
-                em Posted By Steve Bob on September 18, 2019
+        each post in posts
+            div(class='blog-item')
+                a(href='/posts/post/'+post._id)
+                    h3= post.title
+                    h4= post.heading
+                    em= `Posted on ${formatDate(post.publish_date)}`
             hr
+        form(method='POST' action='/older-posts')
+            input(type='hidden' value=`${page}`)
 
-        div(class='blog-item')
-            a(href='#')
-                h3 Man must explore, and this is exploration at its greatest
-                h4 Problems look mighty small from 150 miles up
-                em Posted By Steve Bob on September 18, 2019
-            hr
-        div(class='blog-item')
-            a(href='#')
-                h3 Man must explore, and this is exploration at its greatest
-                h4 Problems look mighty small from 150 miles up
-                em Posted By Steve Bob on September 18, 2019
-            hr
-
-        button(type='button' class='btn btn-info')  Older Posts       
-            i(class="fas fa-arrow-alt-circle-right")
+            button(type='submit' class='btn btn-info')  Older Posts       
+                i(class="fas fa-arrow-alt-circle-right")
 
     footer
         hr

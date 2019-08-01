@@ -2,59 +2,52 @@ extend layout
 
 block content
     div(class='container mt-3 mb-3 blog')
-        h2 Man must explore, and this is exploration at its greatest
-        h4 Problems look mighty small from 150 miles up
-        em(style='color: gray') Posted By Steve Bob on September 18, 2019
+        h2= post.title
+        h4= post.heading
+        em(style='color: gray')= `Posted By ${author} on ${formatDate(post.publish_date)}`
+ 
 
-        img(src='/images/knowledge.jpg' class='cover-img mt-4 img-responsive')
 
-        article(class='mt-5')
-            p Never in all their history have men been able truly to conceive of the world as one: a single sphere, a globe, having the qualities of a globe, a round earth in which all the directions eventually meet, in which there is no center because every point, or none, is center — an equal earth which all men occupy as equals. The airman's earth, if free men make it, will be truly round: a globe in practice, not in theory.
+        article(class='mt-5' id='blogPost')
+        img(src=`data:image/jpeg;base64,${post.images[0]}` class='mb-5 mt-5 cover-img')
+        - var headingIndex = 0;
+        - var imgIndex = 1;
+        - var quoteIndex = 0;
+            each par in post.paragraphs
+                p= par
+                - let pWords = par.split(' ');
+                each word in pWords
+                    if word === '/section-heading'
+                        h4(class='section-heading mb-5 mt-5')= post.section_headings[headingIndex]
+                        - headingIndex += 1;
+                    if word === '/img'
+                        img(src=`data:image/jpeg;base64,${post.images[imgIndex]}` class='cover-img')
+                        - imgIndex += 1;
+                    if word === '/quote'
+                        blockquote= post.quotes[quoteIndex]
+                        - quoteIndex += 1;
+                - par.replace('/section-heading', '');
 
-            p Science cuts two ways, of course; its products can be used for both good and evil. But there's no turning back from science. The early warnings about technological dangers also come from science.
-
-            p What was most significant about the lunar voyage was not that man set foot on the Moon but that they set eye on the earth.
-
-            p A Chinese tale tells of some men sent to harm a young girl who, upon seeing her beauty, become her protectors rather than her violators. That's how I felt seeing the Earth for the first time. I could not help but love and cherish her.
-
-            p For those who have seen the Earth from space, and for the hundreds and perhaps thousands more who will, the experience most certainly changes your perspective. The things that we share in our world are far more valuable than those which divide us.
-
-            h4(class='section-heading mt-5 mb-5') The Final Frontier
-
-            p There can be no thought of finishing for ‘aiming for the stars.’ Both figuratively and literally, it is a task to occupy the generations. And no matter how much progress one makes, there is always the thrill of just beginning.
-
-            p There can be no thought of finishing for ‘aiming for the stars.’ Both figuratively and literally, it is a task to occupy the generations. And no matter how much progress one makes, there is always the thrill of just beginning.
-
-            p There can be no thought of finishing for ‘aiming for the stars.’ Both figuratively and literally, it is a task to occupy the generations. And no matter how much progress one makes, there is always the thrill of just beginning.
-
-            p There can be no thought of finishing for ‘aiming for the stars.’ Both figuratively and literally, it is a task to occupy the generations. And no matter how much progress one makes, there is always the thrill of just beginning.
-
-            h4(class='section-heading mt-5 mb-5') Reaching for the Stars 
-
-            p As we got further and further away, it [the Earth] diminished in size. Finally it shrank to the size of a marble, the most beautiful you can imagine. That beautiful, warm, living object looked so fragile, so delicate, that if you touched it with a finger it would crumble and fall apart. Seeing this has to change a man.
-
-            img(src='/images/knowledge.jpg' class='cover-img mt-4 img-responsive mb-4')
-
-            p Space, the final frontier. These are the voyages of the Starship Enterprise. Its five-year mission: to explore strange new worlds, to seek out new life and new civilizations, to boldly go where no man has gone before.
-
-            p As I stand out here in the wonders of the unknown at Hadley, I sort of realize there’s a fundamental truth to our nature, Man must explore, and this is exploration at its greatest.
-
+           
         hr
 
         div(class='container comments-header')
-            span(class='mr-4') 10 Comments
-            span(class='mr-2') 30
-            span(class='fas fa-thumbs-up' style='font-size: 20px')
+            span(class='mr-4')= `${post.comments_count} Comments`
+            span(class='mr-2')= post.likes_count
+            a(href='/posts/post/'+post._id+'/like')
+                span(class='fas fa-thumbs-up' style='font-size: 20px')
         hr
 
-        div(class='container comment')
-            strong My nickname
-            p Perfectly documented all the steps from scratch! Thanks a lot
-            em Posted at July 11, 2019
-            hr
-        div(class='container comment')
-            strong My nickname
-            p Perfectly documented all the steps from scratch! Thanks a lot
-            em Posted at July 11, 2019
-            hr
+        each c in comments
+            div(class='container comment')
+                strong= c.username  
+                p= c.content  
+                em= `Posted at ${formatDate(c.publish_date)}`
+                hr           
+
+        div(class='container')
+            form(method='POST' action=`/posts/post/${post._id}/comment/create`)
+                label New Comment
+                textarea(rows='4' columns='3' class='form-control' placeholder='Your Comment..' name='content')
+                button(type='submit' class='btn btn-info mt-2') Add Comment
 

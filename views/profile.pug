@@ -19,17 +19,10 @@ block content
                 li(class='list-group-item')
                     a(href='/posts/create')
                         span(class='far fa-plus')  New Post
-                li(class='list-group-item')
-                    a(href='#') 
-                        h4 New Post title
-                    em Posted on July 11, 2019
-                li(class='list-group-item')
-                    a(href='#') 
-                        h4 New Post title
-                    em Posted on July 11, 2019
-                li(class='list-group-item')
-                    a(href='#') 
-                        h4 New Post title
-                    em Posted on July 11, 2019
-
-
+                each post in posts
+                    li(class='list-group-item')
+                        a(href=`/posts/post/${post._id}`)
+                            h4= post.title
+                        em= 'Posted on '+formatDate(post.publish_date)
+                        a(href=`/posts/delete/${post._id}` style='float: right' title='delete' class='delete-post') 
+                            span(class='far fa-window-close')

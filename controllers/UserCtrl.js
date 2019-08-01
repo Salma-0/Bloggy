@@ -1,11 +1,19 @@
 let mongoose = require('mongoose');
 let crypto = require('crypto');
 let async = require('async');
+let moment = require('moment');
 require('../models/user');
 require('../models/post');
 
 let User = mongoose.model('User');
 let Post = mongoose.model('Post');
+
+let monthsNames = ["January", "February", "March", "April", "May", "June", "July",
+"August", "September", "October", "November", "December"];
+
+var formatDate = function(date){
+  return `${date.getDate()} ${monthsNames[date.getMonth()]}, ${date.getFullYear()}`;
+}
 
 
 
@@ -92,7 +100,19 @@ exports.get_user = function(req, res, next){
   	error.status = 500;
   	return next(error);
   }else{
-    res.render('profile', {title: user.username, user: user, logged: req.session.logged});
+
+    async.series([
+      function(callback){
+        Post.find({author: user._id}, function(err, posts){
+          if(err) return callback(err);
+          else
+            return callback(null, posts);
+        })
+      }], function(err, result){
+        if(err) 
+          return next(err);
+        res.render('profile', {title: user.username, user: user, logged: req.session.logged, posts: result[0], formatDate});
+      })
   }
 }
 

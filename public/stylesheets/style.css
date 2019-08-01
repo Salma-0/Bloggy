@@ -52,6 +52,10 @@ nav a{
   text-decoration: none;
 }
 
+.blog-item:hover{
+	background-color: #efefef
+}
+
 *{
 	font-family: 'Open Sans Condensed';
 }

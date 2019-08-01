@@ -3,6 +3,7 @@ let Schema = mongoose.Schema;
 
 var CommentSchema = new Schema({
 	author: {type: Schema.ObjectId, ref: 'User', required: true}, 
+	username: String,
 	content: String,
 	publish_date: Date,
 	update_date: Date,
